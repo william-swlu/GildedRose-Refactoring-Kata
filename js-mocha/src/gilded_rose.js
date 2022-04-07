@@ -81,38 +81,7 @@ class Shop {
 
   updateQuality() {
     this.items.forEach((item) => {
-      if (item.name == 'Sulfuras, Hand of Ragnaros') {
-        item.update()
-        // return
-      }
-
-      // item.sellIn = item.sellIn - 1;
-
-      if (item.name == 'Aged Brie') {
-        // item.increaseQuality()
-        // if (item.sellIn < 0) {
-        //   item.increaseQuality()
-        // }
-        item.update()
-      } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-        // item.increaseQuality()
-        // if (item.sellIn < 10) {
-        //   item.increaseQuality()
-        // }
-        // if (item.sellIn < 5) {
-        //   item.increaseQuality()
-        // }
-        // if (item.sellIn < 0) {
-        //   item.quality = 0
-        // }
-        item.update()
-      } else {
-        // item.decreaseQuality()
-        // if (item.sellIn < 0) {
-        //   item.decreaseQuality()
-        // }
-        item.update()
-      }
+      item.update()
     })
 
     return this.items;
