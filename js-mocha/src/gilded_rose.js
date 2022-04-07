@@ -10,27 +10,35 @@ class Shop {
   constructor(items = []) {
     this.items = items;
   }
+
+  increaseQuality(item) {
+    if (item.quality < 50) {
+      item.quality = item.quality + 1;
+    }
+  }
+  decreaseQuality(item) {
+    if (item.quality > 0) {
+      item.quality = item.quality - 1;
+    }
+  }
+
   updateQuality() {
     this.items.forEach((item) => {
       if (item.name == 'Aged Brie') {
-        if (item.quality < 50) {
-          item.quality = item.quality + 1;
-        }
+        this.increaseQuality(item)
       } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-        item.quality = item.quality + 1;
-        if (item.sellIn < 11 && item.quality < 50) {
-          item.quality = item.quality + 1;
+        this.increaseQuality(item)
+        if (item.sellIn < 11) {
+          this.increaseQuality(item)
         }
-        if (item.sellIn < 6 && item.quality < 50) {
-          item.quality = item.quality + 1;
+        if (item.sellIn < 6) {
+          this.increaseQuality(item)
         }
       } else {
-        if (item.quality > 0) {
-          if (item.name == 'Sulfuras, Hand of Ragnaros') {
+        if (item.name == 'Sulfuras, Hand of Ragnaros') {
 
-          } else {
-            item.quality = item.quality - 1;
-          }
+        } else {
+          this.decreaseQuality(item)
         }
       }
       if (item.name == 'Sulfuras, Hand of Ragnaros') {
@@ -40,20 +48,16 @@ class Shop {
       }
       if (item.sellIn < 0) {
         if (item.name == 'Aged Brie') {
-          if (item.quality < 50) {
-            item.quality = item.quality + 1;
-          }
+          this.increaseQuality(item)
         } else {
           if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
             item.quality = item.quality - item.quality;
           }
           else {
-            if (item.quality > 0) {
-              if (item.name == 'Sulfuras, Hand of Ragnaros') {
+            if (item.name == 'Sulfuras, Hand of Ragnaros') {
 
-              } else {
-                item.quality = item.quality - 1;
-              }
+            } else {
+              this.decreaseQuality(item)
             }
           }
         }
