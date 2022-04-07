@@ -4,6 +4,18 @@ class Item {
     this.sellIn = sellIn;
     this.quality = quality;
   }
+
+  increaseQuality() {
+    if (this.quality < 50) {
+      this.quality = this.quality + 1;
+    }
+  }
+
+  decreaseQuality() {
+    if (this.quality > 0) {
+      this.quality = this.quality - 1;
+    }
+  }
 }
 
 class Shop {
@@ -29,25 +41,25 @@ class Shop {
       item.sellIn = item.sellIn - 1;
 
       if (item.name == 'Aged Brie') {
-        this.increaseQuality(item)
+        item.increaseQuality()
         if (item.sellIn < 0) {
-          this.increaseQuality(item)
+          item.increaseQuality()
         }
       } else if (item.name == 'Backstage passes to a TAFKAL80ETC concert') {
-        this.increaseQuality(item)
+        item.increaseQuality()
         if (item.sellIn < 10) {
-          this.increaseQuality(item)
+          item.increaseQuality()
         }
         if (item.sellIn < 5) {
-          this.increaseQuality(item)
+          item.increaseQuality()
         }
         if (item.sellIn < 0) {
           item.quality = 0
         }
       } else {
-        this.decreaseQuality(item)
+        item.decreaseQuality()
         if (item.sellIn < 0) {
-          this.decreaseQuality(item)
+          item.decreaseQuality()
         }
       }
     })

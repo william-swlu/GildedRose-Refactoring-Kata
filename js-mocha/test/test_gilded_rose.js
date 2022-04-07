@@ -1,5 +1,5 @@
-var {expect} = require('chai');
-var {Shop, Item} = require('../src/gilded_rose.js');
+var { expect } = require('chai');
+var { Shop, Item } = require('../src/gilded_rose.js');
 // describe("Gilded Rose", function() {
 
 //   it("should foo", function() {
@@ -10,9 +10,9 @@ var {Shop, Item} = require('../src/gilded_rose.js');
 
 // });
 
-describe("Gilded Rose", function() {
+describe("Gilded Rose", function () {
 
-  it("quality_never_is_negative", function() {
+  it("quality_never_is_negative", function () {
     const gildedRose = new Shop([new Item('foo', 0, 0)]);
     const items = gildedRose.updateQuality()
     const isEveryItemNotNegative = items.every(item => item.quality >= 0)
